@@ -1,11 +1,17 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import { useArticle } from "../hooks/articles";
 
 const Home = () => {
+  const { fetchArticle, loading, error } = useArticle();
+
+  const handleFetchArticle = async () => {
+    const article = await fetchArticle(12332);
+    console.log(article);
+  };
+
   useEffect(() => {
-    fetch("/api/article/14325").then((response) =>
-      response.json().then((result) => console.log(result))
-    );
+    handleFetchArticle();
   }, []);
   return (
     <div>
