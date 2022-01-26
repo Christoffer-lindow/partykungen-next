@@ -1,6 +1,18 @@
-export const fetchArticleById = async (id) => {
-  const result = fetch(`/api/article/${id}`).then((response) =>
-    response.json().then((result) => result)
-  );
-  return result;
+import { FETCH_ARTICLE } from "../constants/articles";
+export const fetchArticleById = (id) => async (dispatch) => {
+  try {
+    const response = await fetch(`/api/article/${id}`);
+    const result = await response.json();
+
+    if (response.status === 200) {
+      dispatch({
+        type: FETCH_ARTICLE,
+        payload: result,
+      });
+      return result;
+    }
+    throw new Error(result.message);
+  } catch (error) {
+    throw error;
+  }
 };

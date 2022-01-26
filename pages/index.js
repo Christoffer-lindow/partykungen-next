@@ -3,16 +3,10 @@ import { useEffect, useState } from "react";
 import { useArticle } from "../hooks/articles";
 
 const Home = () => {
-  const { fetchArticle, loading, error } = useArticle();
+  const { fetchArticle, loading, error, article } = useArticle();
 
-  const handleFetchArticle = async () => {
-    const article = await fetchArticle(12332);
-    console.log(article);
-  };
+  const handleFetchArticle = async () => await fetchArticle(12345);
 
-  useEffect(() => {
-    handleFetchArticle();
-  }, []);
   return (
     <div>
       <Head>
