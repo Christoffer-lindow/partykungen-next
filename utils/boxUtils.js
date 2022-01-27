@@ -5,7 +5,7 @@ const createPropInfo = (prop, articleVariant, box) => {
   return {
     prop,
     valid: compareProperty(articleVariant[prop], box[prop]),
-    diffrential: checkDifference(articleVariant[prop], box[prop]),
+    difference: checkDifference(articleVariant[prop], box[prop]),
   };
 };
 
