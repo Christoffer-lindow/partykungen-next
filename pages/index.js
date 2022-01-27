@@ -7,7 +7,7 @@ import HeadSection from "../components/layouts/HeadSection";
 import Article from "../components/Article/Article";
 import { getStaticImageUrl } from "./api/article";
 
-const Home = ({ articleImageBaseUrl }) => {
+const Home = ({ articleImageBaseUrl, boxSizes }) => {
   const { fetchArticle } = useArticle();
   const [article, setArticle] = useState(null);
   const handleSubmit = async (value) => {
@@ -21,7 +21,11 @@ const Home = ({ articleImageBaseUrl }) => {
       <HeadSection />
       <FetchArticleForm loading onSubmit={(value) => handleSubmit(value)} />
       {article && (
-        <Article article={article} articleImageBaseUrl={articleImageBaseUrl} />
+        <Article
+          article={article}
+          articleImageBaseUrl={articleImageBaseUrl}
+          boxSizes={boxSizes}
+        />
       )}
     </Layout>
   );
@@ -29,11 +33,11 @@ const Home = ({ articleImageBaseUrl }) => {
 
 export const getServerSideProps = async () => {
   const articleImageBaseUrl = await getStaticImageUrl();
+  const boxSizes = getBoxSizes();
+  console.log(typeof boxSizes);
   return {
     props: {
-      boxSizes: {
-        ...getBoxSizes(),
-      },
+      boxSizes: getBoxSizes(),
       articleImageBaseUrl,
     },
   };
