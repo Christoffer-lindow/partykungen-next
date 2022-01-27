@@ -5,6 +5,7 @@ const ArticlePictures = ({ productPictures, getImageUrl }) => {
         <img
           src={getImageUrl(product.image_name)}
           className="object-cover h-20"
+          key={product.image_name}
         />
       ))}
     </div>

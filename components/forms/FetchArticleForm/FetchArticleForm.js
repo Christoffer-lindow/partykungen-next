@@ -22,7 +22,7 @@ const FetchArticleForm = ({ onSubmit, currentArticle }) => {
       return setError("An article has atleast 5 characters");
     if (formValidations.longerThan(value, 7))
       return setError("An article can not  be longer than 7 characters");
-    if (currentArticle.id == value)
+    if (currentArticle?.id == value)
       return setError("This article is already loaded");
 
     clearError();

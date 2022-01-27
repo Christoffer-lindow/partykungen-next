@@ -9,12 +9,18 @@ import { getStaticImageUrl } from "./api/article";
 import ArticleNavigation from "../components/Article/ArticleNavigation";
 
 const Home = ({ articleImageBaseUrl, boxSizes }) => {
-  const { fetchArticle } = useArticle();
+  const { fetchArticle, updateCurrentArticle } = useArticle();
   const [article, setArticle] = useState(null);
   const handleSubmit = async (value) => {
     await fetchArticle(value)
       .then((response) => setArticle(response))
       .catch((error) => console.log(error));
+  };
+
+  const handleUpdateArticle = (article) => {
+    console.log(article);
+    updateCurrentArticle(article);
+    setArticle(article.article);
   };
 
   return (
@@ -25,7 +31,9 @@ const Home = ({ articleImageBaseUrl, boxSizes }) => {
         onSubmit={(value) => handleSubmit(value)}
         currentArticle={article}
       />
-      <ArticleNavigation />
+      <ArticleNavigation
+        updateArticle={(article) => handleUpdateArticle(article)}
+      />
       {article && (
         <Article
           article={article}

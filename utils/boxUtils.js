@@ -18,7 +18,6 @@ export const getPropsInfo = (props, articleVariant, boxes) => {
     });
     infoMaps.push(infoMap);
   });
-  console.log(infoMaps);
   return infoMaps;
 };
 

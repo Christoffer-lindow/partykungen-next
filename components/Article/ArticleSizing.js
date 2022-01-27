@@ -9,7 +9,7 @@ const ArticleSizing = ({ variantFirstBuyable, boxSizes }) => {
     <div>
       <div className="flex w-100 justify-between">
         {propsInfo.map((info, i) => (
-          <div className="w-1/2">
+          <div className="w-1/2" key={i}>
             <ArticleSizingInfo propsInfo={info} fits={fittingBoxes[i].valid} />
           </div>
         ))}

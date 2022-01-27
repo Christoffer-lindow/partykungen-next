@@ -1,4 +1,4 @@
-import { FETCH_ARTICLE } from "../constants/articles";
+import { FETCH_ARTICLE, UPDATE_ARTICLE } from "../constants/articles";
 export const fetchArticleById = (id) => async (dispatch) => {
   try {
     const response = await fetch(`/api/article/${id}`);
@@ -16,3 +16,9 @@ export const fetchArticleById = (id) => async (dispatch) => {
     throw error;
   }
 };
+
+export const updateArticle = (article) => (dispatch) =>
+  dispatch({
+    type: UPDATE_ARTICLE,
+    payload: { id: article.id, article: article.article },
+  });
