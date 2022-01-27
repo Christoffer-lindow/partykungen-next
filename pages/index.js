@@ -6,6 +6,9 @@ import Layout from "../components/layouts/Layout";
 import HeadSection from "../components/layouts/HeadSection";
 import Article from "../components/Article/Article";
 import { getStaticImageUrl } from "./api/article";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import ArticleNavigation from "../components/Article/ArticleNavigation";
 
 const Home = ({ articleImageBaseUrl, boxSizes }) => {
   const { fetchArticle } = useArticle();
@@ -20,6 +23,7 @@ const Home = ({ articleImageBaseUrl, boxSizes }) => {
     <Layout>
       <HeadSection />
       <FetchArticleForm loading onSubmit={(value) => handleSubmit(value)} />
+      <ArticleNavigation />
       {article && (
         <Article
           article={article}
@@ -32,13 +36,10 @@ const Home = ({ articleImageBaseUrl, boxSizes }) => {
 };
 
 export const getServerSideProps = async () => {
-  const articleImageBaseUrl = await getStaticImageUrl();
-  const boxSizes = getBoxSizes();
-  console.log(typeof boxSizes);
   return {
     props: {
       boxSizes: getBoxSizes(),
-      articleImageBaseUrl,
+      articleImageBaseUrl: getStaticImageUrl(),
     },
   };
 };
