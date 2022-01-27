@@ -5,7 +5,7 @@ import { faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 const RenderIcon = ({ isOpen, hasError }) => {
   return (
     <span
-      className={`z-10 h-full leading-snug font-normal text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3`}
+      className={`z-10 leading-snug font-normal text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3`}
     >
       <FontAwesomeIcon
         icon={isOpen ? faBoxOpen : faBox}
