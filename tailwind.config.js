@@ -4,6 +4,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    colors: {
+      "pk-yellow": "#FFDE0E",
+    },
     extend: {
       transformOrigin: {
         0: "0%",
