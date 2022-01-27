@@ -1,3 +1,5 @@
+import ProductHeader from "../typography/ProductHeader";
+
 const Article = ({ article, articleImageBaseUrl }) => {
   const {
     name,
@@ -23,7 +25,7 @@ const Article = ({ article, articleImageBaseUrl }) => {
           </div>
           <div className="flex justify-center">
             <div>
-              <div>{name}</div>
+              <ProductHeader>{name}</ProductHeader>
             </div>
           </div>
         </div>
