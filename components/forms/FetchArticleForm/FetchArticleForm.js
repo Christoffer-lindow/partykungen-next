@@ -3,7 +3,7 @@ import { formValidations } from "../../../utils/validation";
 import CtaButton from "../../buttons/CtaButton/CtaButton";
 import ArticleInput from "../../inputs/ArticleInput/ArticleInput";
 
-const FetchArticleForm = ({ onSubmit }) => {
+const FetchArticleForm = ({ onSubmit, currentArticle }) => {
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [packageOpen, setPackageOpen] = useState(false);
@@ -22,6 +22,9 @@ const FetchArticleForm = ({ onSubmit }) => {
       return setError("An article has atleast 5 characters");
     if (formValidations.longerThan(value, 7))
       return setError("An article can not  be longer than 7 characters");
+    if (currentArticle.id == value)
+      return setError("This article is already loaded");
+
     clearError();
     return true;
   };

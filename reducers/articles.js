@@ -9,7 +9,10 @@ export const articlesReducer = (state = initialState, action) => {
     case FETCH_ARTICLE:
       return {
         ...state,
-        articles: [...state.articles, action.payload],
+        articles: [
+          ...state.articles,
+          { id: state.articles.length + 1, article: action.payload },
+        ],
       };
     default:
       return state;

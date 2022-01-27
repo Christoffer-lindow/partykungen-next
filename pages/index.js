@@ -6,8 +6,6 @@ import Layout from "../components/layouts/Layout";
 import HeadSection from "../components/layouts/HeadSection";
 import Article from "../components/Article/Article";
 import { getStaticImageUrl } from "./api/article";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import ArticleNavigation from "../components/Article/ArticleNavigation";
 
 const Home = ({ articleImageBaseUrl, boxSizes }) => {
@@ -22,7 +20,11 @@ const Home = ({ articleImageBaseUrl, boxSizes }) => {
   return (
     <Layout>
       <HeadSection />
-      <FetchArticleForm loading onSubmit={(value) => handleSubmit(value)} />
+      <FetchArticleForm
+        loading
+        onSubmit={(value) => handleSubmit(value)}
+        currentArticle={article}
+      />
       <ArticleNavigation />
       {article && (
         <Article
