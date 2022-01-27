@@ -1,10 +1,13 @@
-const checkDimension = (articleValue, boxValue) => articleValue < boxValue;
+const compareProperty = (articleValue, boxValue) => articleValue < boxValue;
 const checkDifference = (articleValue, boxValue) => boxValue - articleValue;
-export const getDimensionInfo = (articleVariant, box) =>
-  ["height", "width", "depth", "weight"].map((dimension) => {
-    return {
-      dimension: dimension,
-      valid: checkDimension(articleVariant[dimension], box[dimension]),
-      diffrential: checkDifference(articleVariant[dimension], box[dimension]),
-    };
-  });
+
+const createPropInfo = (prop, articleVariant, box) => {
+  return {
+    prop,
+    valid: compareProperty(articleVariant[prop], box[prop]),
+    diffrential: checkDifference(articleVariant[prop], box[prop]),
+  };
+};
+
+export const getPropsInfo = (props, articleVariant, box) =>
+  props.map((prop) => createPropInfo(prop, articleVariant, box));
