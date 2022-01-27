@@ -1,5 +1,5 @@
-export default async function handler(req, res) {
-  const data = [
+export const getBoxSizes = () => {
+  return [
     {
       box: "XS",
       width: 120,
@@ -15,5 +15,6 @@ export default async function handler(req, res) {
       weight: 20000,
     },
   ];
-  return res.status(200).json(data);
-}
+};
+const handler = (req, res) => res.status(200).json(getBoxSizes());
+export default handler;

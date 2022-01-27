@@ -33,20 +33,14 @@ const FetchArticleForm = ({ onSubmit }) => {
   return (
     <>
       <div className="mb-4">{formError}</div>
-      <div className="mb-2 w-1/4">
-        <FloatingLabelInput
-          label="Search article"
-          name="hej"
-          value={value}
-          placeholder=""
-          onChange={(e) => setValue(e.target.value)}
-        />
-      </div>
-      <div classNAme="w-1/4">
-        <CtaButton onClick={() => handleFetchArticle()}>
-          Hämta artikel
-        </CtaButton>
-      </div>
+      <FloatingLabelInput
+        label="Search article"
+        name="hej"
+        value={value}
+        placeholder=""
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <CtaButton onClick={() => handleFetchArticle()}>Hämta artikel</CtaButton>
     </>
   );
 };

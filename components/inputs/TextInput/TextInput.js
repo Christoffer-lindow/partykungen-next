@@ -1,17 +1,14 @@
 function FloatingLabelInput({ name, placeholder, label, value, ...rest }) {
   return (
-    <div className="relative border-b-2 focus-within:border-blue-500">
+    <div className="relative flex w-full flex-wrap items-stretch mb-3">
       <input
-        {...rest}
         type="text"
-        name={name}
-        placeholder={placeholder}
-        className="block w-full appearance-none focus:outline-none bg-transparent"
-        value={value}
+        placeholder="Placeholder"
+        className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full pr-10"
       />
-      <label for={name} className="absolute top-0 -z-1 duration-300 origin-0">
-        {label}
-      </label>
+      <span className="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3">
+        <i className="fas fa-user"></i>
+      </span>
     </div>
   );
 }
