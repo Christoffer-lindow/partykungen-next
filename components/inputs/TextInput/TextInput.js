@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function FloatingLabelInput({ name, placeholder, label, value, ...rest }) {
   return (
     <div className="relative border-b-2 focus-within:border-blue-500">

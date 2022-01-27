@@ -1,13 +1,32 @@
 import Head from "next/head";
 import { useArticle } from "../hooks/articles";
-
+import { getDimensionInfo } from "../utils/boxUtils";
 import FetchArticleForm from "../components/forms/FetchArticleForm/FetchArticleForm";
+import { useEffect, useState } from "react";
 
 const Home = () => {
-  const { fetchArticle, loading, error, article } = useArticle();
-  const handleSubmit = (value) => {
-    fetchArticle(value);
+  const { fetchArticle } = useArticle();
+  const [boxes, setBoxes] = useState([]);
+  const [article, setArticle] = useState(null);
+  const [fittableBoxes, setFittableBoxes] = useState([]);
+  const handleSubmit = async (value) => {
+    await fetchArticle(value)
+      .then((response) => setArticle(response))
+      .catch((error) => console.log(error));
   };
+
+  useEffect(() => {
+    if (boxes.length === 0) {
+      fetch("/api/boxes/sizes")
+        .then((response) => response.json())
+        .then((result) => setBoxes(result));
+    }
+    if (article) {
+      boxes.forEach((box) => {
+        console.log(getDimensionInfo(article.variant_first_buyable, box));
+      });
+    }
+  }, [boxes, article]);
   return (
     <div>
       <Head>
