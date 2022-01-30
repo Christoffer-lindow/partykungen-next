@@ -4,13 +4,13 @@ import {
   removeFavouriteAction,
 } from "../actions/favourites";
 
-export const UseFavourites = () => {
+export const useFavourites = () => {
   const dispatch = useDispatch();
   const { getState } = useStore();
   const addFavourite = (article) => dispatch(addFavouriteAction(article));
   const removeFavourite = (article) => dispatch(removeFavouriteAction(article));
 
-  const getFavourites = getState().favourites.favourites;
+  const favourites = getState().favourites.favourites;
 
-  return { addFavourite, removeFavourite };
+  return { addFavourite, removeFavourite, favourites };
 };

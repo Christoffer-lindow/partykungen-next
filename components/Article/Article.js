@@ -3,6 +3,7 @@ import ProductHeader from "../typography/ProductHeader";
 import ArticlePictures from "./ArticlePictures";
 import ArticleSizing from "./ArticleSizing";
 import BottomMargin from "../layouts/BottomMargin";
+import { useFavourites } from "../../hooks/favourites";
 const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
   const {
     name,
@@ -12,6 +13,9 @@ const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
   } = article;
   const price = value / 100 + suffix;
   const getImageUrl = (imageName) => `${articleImageBaseUrl}/${imageName}.jpg`;
+
+  const { addFavourite } = useFavourites();
+
   return (
     <>
       <div className="w-full flex justify-center mb-6">
@@ -31,7 +35,7 @@ const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
         </div>
       </div>
       <BottomMargin />
-      <FavouriteButton />
+      <FavouriteButton onClick={() => addFavourite(article)} />
       <BottomMargin />
 
       <ArticleSizing
