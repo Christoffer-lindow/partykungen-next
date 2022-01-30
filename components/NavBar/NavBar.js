@@ -1,15 +1,18 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 const NavBar = () => {
   const { push } = useRouter();
   return (
-    <div
-      className="lg:h-16 h-22 font-semibold bg-pk-yellow hover:cursor-pointer"
-      onClick={() => push("/")}
-    >
+    <div className="lg:h-16 h-22 font-semibold bg-pk-yellow">
       <div className="flex justify-between mx-7 items-center h-full">
         <div className="left w-6/8 flex">
-          <img src="/images/Partykungen_logo_RGB.svg" className="h-20 w-20" />
+          <Link href="/">
+            <img
+              src="/images/Partykungen_logo_RGB.svg"
+              className="h-20 w-20 cursor-pointer"
+            />
+          </Link>
         </div>
         <div className="flex w-1/4 justify-between">
           <img src="/images/pk-cart-noface.svg" className="w-7 h-7" />
