@@ -18,13 +18,14 @@ const Articles = ({ articleImageBaseUrl, boxSizes }) => {
   };
 
   const handleUpdateArticle = (article) => {
-    console.log(article);
     updateCurrentArticle(article);
     setArticle(article.article);
   };
 
+  const breadCrumbs = [{ href: "articles", name: "Articles" }];
+
   return (
-    <Layout>
+    <Layout breadCrumbs={breadCrumbs}>
       <HeadSection title={"Party king - Article sizing"} />
       <FetchArticleForm
         loading
