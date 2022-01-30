@@ -4,7 +4,7 @@ const NavBar = () => {
   const { push } = useRouter();
   return (
     <div
-      className="lg:h-16 h-22 font-semibold bg-pk-yellow"
+      className="lg:h-16 h-22 font-semibold bg-pk-yellow hover:cursor-pointer"
       onClick={() => push("/")}
     >
       <div className="flex justify-between mx-7 items-center h-full">
