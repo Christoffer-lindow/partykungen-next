@@ -19,16 +19,20 @@ const History = ({ boxSizes }) => {
 
   return (
     <Layout breadCrumbs={breadCrumbs}>
-      {filteredSizes.map((size, i) => (
+      {validBoxFittingInfo.length > 0 && (
         <div>
-          <div>{size[i].box}</div>
-          {size.map((s) => (
-            <div className={s.valid ? "bg-green-500" : "bg-pk-error"}>
-              {s.productName}
+          {filteredSizes.map((size, i) => (
+            <div>
+              <div>{filteredSizes[i][0].box}</div>
+              {size.map((s) => (
+                <div className={s.valid ? "bg-green-500" : "bg-pk-error"}>
+                  {s.productName}
+                </div>
+              ))}
             </div>
           ))}
         </div>
-      ))}
+      )}
     </Layout>
   );
 };
