@@ -25,7 +25,7 @@ export const ArticleSizingInfo = ({ propsInfo, fits }) => {
   const box = propsInfo.get("box");
 
   return (
-    <div className={`${fits ? "bg-green-400" : "bg-red-500"} p-6 h-48`}>
+    <div className={`${fits ? "bg-green-400" : "bg-red-500"} p-6 h-48 w-100`}>
       <h1 className="text-white text-2xl mb-2">Type: {box}</h1>
       <InfoRow name="Width" prop={width} dividend={10} unit="cm" />
       <InfoRow name="Height" prop={height} dividend={10} unit="cm" />

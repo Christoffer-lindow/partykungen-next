@@ -27,14 +27,14 @@ const ArticleNavigation = ({ updateArticle }) => {
   const currentArticle = getCurrentArticle();
   const previousArticle = getArticleByHistoryId(currentArticle?.id - 1);
   const nextArticle = getArticleByHistoryId(currentArticle?.id + 1);
-  console.log("render");
   return (
-    <div className="w-full flex justify-between mb-8">
+    <div className="w-full flex justify-between items-center mb-8">
       <Arrow
         isPrevious={true}
         disabled={!previousArticle}
         onClick={() => updateArticle(previousArticle)}
       />
+      <div>{currentArticle?.article.id}</div>
       <Arrow
         isPrevious={false}
         disabled={!nextArticle}
