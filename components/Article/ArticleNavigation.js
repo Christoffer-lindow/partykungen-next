@@ -9,7 +9,9 @@ const Arrow = ({ isPrevious, onClick, disabled }) => {
   return (
     <div
       onClick={handleOnClick}
-      className={`${disabled ? "text-gray-300" : "text-black"}`}
+      className={`${
+        disabled ? "text-gray-300" : "text-black hover:cursor-pointer"
+      } `}
     >
       {!isPrevious && "Next"}
       <FontAwesomeIcon
@@ -34,7 +36,7 @@ const ArticleNavigation = ({ updateArticle }) => {
         disabled={!previousArticle}
         onClick={() => updateArticle(previousArticle)}
       />
-      <div>{currentArticle?.article.id}</div>
+      {currentArticle && <div>Article id: {currentArticle.article.id}</div>}
       <Arrow
         isPrevious={false}
         disabled={!nextArticle}
