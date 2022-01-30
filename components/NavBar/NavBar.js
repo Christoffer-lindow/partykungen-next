@@ -1,6 +1,6 @@
 const NavBar = () => {
   return (
-    <div className="lg:h-16 h-22 font-semibold bg-pk-yellow mb-4">
+    <div className="lg:h-16 h-22 font-semibold bg-pk-yellow">
       <div className="flex justify-between mx-7 items-center h-full">
         <div className="left w-6/8 flex">
           <img src="/images/Partykungen_logo_RGB.svg" className="h-20 w-20" />
