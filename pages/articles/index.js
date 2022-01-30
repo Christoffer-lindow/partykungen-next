@@ -23,8 +23,6 @@ const Articles = ({ articleImageBaseUrl, boxSizes }) => {
     setArticle(article.article);
   };
 
-  console.log(article);
-
   const breadCrumbs = [{ href: "articles", name: "Articles" }];
 
   return (

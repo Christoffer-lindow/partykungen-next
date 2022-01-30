@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 const BreadCrumbs = ({ paths }) => {
-  console.log(paths);
   const renderPaths = () =>
     paths.map((path) => (
       <Link href={path.href}>

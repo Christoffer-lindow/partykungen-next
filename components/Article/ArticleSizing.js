@@ -1,8 +1,7 @@
-import { articleFitsInBox, getPropsInfo } from "../../utils/boxUtils";
+import { articleFitsInBox, getPropsInfo, props } from "../../utils/boxUtils";
 import { ArticleSizingInfo } from "./ArticleSizingInfo";
 
 const ArticleSizing = ({ variantFirstBuyable, boxSizes }) => {
-  const props = ["weight", "width", "depth", "height"];
   const propsInfo = getPropsInfo(props, variantFirstBuyable, boxSizes);
   const fittingBoxes = propsInfo.map((boxInfo) => articleFitsInBox(boxInfo));
   return (

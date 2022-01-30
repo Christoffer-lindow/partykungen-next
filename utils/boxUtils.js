@@ -8,6 +8,8 @@ const createPropInfo = (prop, articleVariant, box) => {
   };
 };
 
+export const props = ["weight", "width", "depth", "height"];
+
 export const getPropsInfo = (props, articleVariant, boxes) => {
   const infoMaps = [];
   boxes.forEach((box) => {
@@ -16,6 +18,7 @@ export const getPropsInfo = (props, articleVariant, boxes) => {
     props.forEach((prop) => {
       infoMap.set(prop, createPropInfo(prop, articleVariant, box));
     });
+    infoMap.set("name", articleVariant.belongs_to_product.name);
     infoMaps.push(infoMap);
   });
   return infoMaps;
@@ -23,15 +26,28 @@ export const getPropsInfo = (props, articleVariant, boxes) => {
 
 export const articleFitsInBox = (propsInfo) => {
   for (const [key, value] of propsInfo) {
-    if (!value.valid && key !== "box") {
+    if (!value.valid && key !== "box" && key !== "name") {
       return {
         box: propsInfo.get("box"),
         valid: false,
+        productName: propsInfo.get("name"),
       };
     }
   }
   return {
     box: propsInfo.get("box"),
     valid: true,
+    productName: propsInfo.get("name"),
   };
+};
+
+export const getArticlesThatFitInsideBoxes = (props, articles, boxes) => {
+  const articlesPropInfo = articles.map((article) =>
+    getPropsInfo(props, article.variant_first_buyable, boxes)
+  );
+  const articles = [];
+  articlesPropInfo.forEach((article) =>
+    article.forEach((info) => articles.push(articleFitsInBox(info)))
+  );
+  return articles;
 };

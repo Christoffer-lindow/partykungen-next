@@ -10,6 +10,8 @@ export const useArticle = () => {
     return state.articles.currentArticle;
   };
 
+  const articles = getState().articles.articles;
+
   const updateCurrentArticle = (article) => dispatch(updateArticle(article));
 
   const getArticleByHistoryId = (id) => {
@@ -22,5 +24,6 @@ export const useArticle = () => {
     getCurrentArticle,
     getArticleByHistoryId,
     updateCurrentArticle,
+    articles,
   };
 };
