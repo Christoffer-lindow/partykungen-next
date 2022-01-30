@@ -1,5 +1,5 @@
-const History = () => {
-  <div>Historia</div>;
+const History = ({}) => {
+  return <div>Historia</div>;
 };
 
 export default History;
