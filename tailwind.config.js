@@ -9,6 +9,7 @@ module.exports = {
         "pk-yellow": "#FFDE0E",
         "pk-blue": "#00DBD9",
         "pk-error": "#EF4444",
+        "pk-favourite": "#FF4F66",
       },
     },
   },

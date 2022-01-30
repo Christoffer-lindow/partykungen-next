@@ -1,6 +1,8 @@
+import FavouriteButton from "../buttons/FavouriteButton/FavouriteButton";
 import ProductHeader from "../typography/ProductHeader";
 import ArticlePictures from "./ArticlePictures";
 import ArticleSizing from "./ArticleSizing";
+import BottomMargin from "../layouts/BottomMargin";
 const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
   const {
     name,
@@ -28,6 +30,10 @@ const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
           <ProductHeader isDanger>{price}</ProductHeader>
         </div>
       </div>
+      <BottomMargin />
+      <FavouriteButton />
+      <BottomMargin />
+
       <ArticleSizing
         boxSizes={boxSizes}
         variantFirstBuyable={variantFirstBuyable}
