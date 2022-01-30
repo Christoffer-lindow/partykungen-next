@@ -1,3 +1,4 @@
+import Link from "next/link";
 import HistoryList from "../../components/History/HistoryList";
 import Layout from "../../components/layouts/Layout";
 import { useArticle } from "../../hooks/articles";
@@ -20,8 +21,17 @@ const History = ({ boxSizes }) => {
 
   return (
     <Layout breadCrumbs={breadCrumbs}>
-      {validBoxFittingInfo.length > 0 && (
+      {validBoxFittingInfo.length > 0 ? (
         <HistoryList filteredArticles={filteredSizes} />
+      ) : (
+        <div>
+          <span>
+            There are currently no items in the history. Browse our articles on
+          </span>
+          <Link href="/articles">
+            <span className="underline text-pk-blue font-bold"> This page</span>
+          </Link>
+        </div>
       )}
     </Layout>
   );

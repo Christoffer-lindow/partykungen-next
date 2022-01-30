@@ -8,7 +8,7 @@ const rightLinks = [
   },
   {
     imageUrl: "/images/pk-heart_b-01.svg",
-    linkTo: "/",
+    linkTo: "/watchlist",
   },
   {
     imageUrl: "/images/pk-bars.svg",
