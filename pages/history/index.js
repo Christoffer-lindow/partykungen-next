@@ -1,3 +1,4 @@
+import HistoryList from "../../components/History/HistoryList";
 import Layout from "../../components/layouts/Layout";
 import { useArticle } from "../../hooks/articles";
 import { getArticlesThatFitInsideBoxes, props } from "../../utils/boxUtils";
@@ -20,18 +21,7 @@ const History = ({ boxSizes }) => {
   return (
     <Layout breadCrumbs={breadCrumbs}>
       {validBoxFittingInfo.length > 0 && (
-        <div>
-          {filteredSizes.map((size, i) => (
-            <div>
-              <div>{filteredSizes[i][0].box}</div>
-              {size.map((s) => (
-                <div className={s.valid ? "bg-green-500" : "bg-pk-error"}>
-                  {s.productName}
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+        <HistoryList filteredArticles={filteredSizes} />
       )}
     </Layout>
   );

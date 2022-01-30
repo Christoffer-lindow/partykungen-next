@@ -12,6 +12,11 @@ export const useArticle = () => {
 
   const articles = getState().articles.articles;
 
+  const getArticleByName = (articleName) =>
+    getState().articles.articles.find(
+      (article) => article.article.name === articleName
+    );
+
   const updateCurrentArticle = (article) => dispatch(updateArticle(article));
 
   const getArticleByHistoryId = (id) => {
@@ -25,5 +30,6 @@ export const useArticle = () => {
     getArticleByHistoryId,
     updateCurrentArticle,
     articles,
+    getArticleByName,
   };
 };
