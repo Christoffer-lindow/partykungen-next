@@ -9,8 +9,9 @@ import { getStaticImageUrl } from "../api/article";
 import ArticleNavigation from "../../components/Article/ArticleNavigation";
 
 const Articles = ({ articleImageBaseUrl, boxSizes }) => {
-  const { fetchArticle, updateCurrentArticle } = useArticle();
-  const [article, setArticle] = useState(null);
+  const { fetchArticle, updateCurrentArticle, getCurrentArticle } =
+    useArticle();
+  const [article, setArticle] = useState(getCurrentArticle()?.article || null);
   const handleSubmit = async (value) => {
     await fetchArticle(value)
       .then((response) => setArticle(response))
@@ -21,6 +22,8 @@ const Articles = ({ articleImageBaseUrl, boxSizes }) => {
     updateCurrentArticle(article);
     setArticle(article.article);
   };
+
+  console.log(article);
 
   const breadCrumbs = [{ href: "articles", name: "Articles" }];
 
