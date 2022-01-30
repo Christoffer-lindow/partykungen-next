@@ -45,9 +45,9 @@ export const getArticlesThatFitInsideBoxes = (props, articles, boxes) => {
   const articlesPropInfo = articles.map((article) =>
     getPropsInfo(props, article.variant_first_buyable, boxes)
   );
-  const articles = [];
+  const returnArticles = [];
   articlesPropInfo.forEach((article) =>
-    article.forEach((info) => articles.push(articleFitsInBox(info)))
+    article.forEach((info) => returnArticles.push(articleFitsInBox(info)))
   );
-  return articles;
+  return returnArticles;
 };

@@ -7,11 +7,28 @@ const History = ({ boxSizes }) => {
   const breadCrumbs = [{ href: "history", name: "History" }];
   const { articles } = useArticle();
   const articlesInfo = articles.map((article) => article.article);
-  const a = getArticlesThatFitInsideBoxes(props, articlesInfo, boxSizes);
-  console.log(a);
+  const validBoxFittingInfo = getArticlesThatFitInsideBoxes(
+    props,
+    articlesInfo,
+    boxSizes
+  );
+
+  const filteredSizes = boxSizes.map((box) =>
+    validBoxFittingInfo.filter((boxInfo) => box.box === boxInfo.box)
+  );
+
   return (
     <Layout breadCrumbs={breadCrumbs}>
-      {articles.map((article) => article.id)}
+      {filteredSizes.map((size, i) => (
+        <div>
+          <div>{size[i].box}</div>
+          {size.map((s) => (
+            <div className={s.valid ? "bg-green-500" : "bg-pk-error"}>
+              {s.productName}
+            </div>
+          ))}
+        </div>
+      ))}
     </Layout>
   );
 };
