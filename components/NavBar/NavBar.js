@@ -1,8 +1,27 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
+import NavLink from "./NavLink";
+
+const rightLinks = [
+  {
+    imageUrl: "/images/pk-cart-noface.svg",
+    linkTo: "/",
+  },
+  {
+    imageUrl: "/images/pk-heart_b-01.svg",
+    linkTo: "/",
+  },
+  {
+    imageUrl: "/images/pk-bars.svg",
+    linkTo: "/",
+  },
+];
+
+const RenderLinks = ({ links }) =>
+  links.map((link) => (
+    <NavLink imageUrl={link.imageUrl} linkTo={link.linkTo} />
+  ));
 
 const NavBar = () => {
-  const { push } = useRouter();
   return (
     <div className="lg:h-16 h-22 font-semibold bg-pk-yellow">
       <div className="flex justify-between mx-7 items-center h-full">
@@ -15,9 +34,7 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="flex w-1/4 justify-between">
-          <img src="/images/pk-cart-noface.svg" className="w-7 h-7" />
-          <img src="/images/pk-heart_b-01.svg" className="w-7 h-7" />
-          <img src="/images/pk-bars.svg" className="w-7 h-7" />
+          <RenderLinks links={rightLinks} />
         </div>
       </div>
     </div>
