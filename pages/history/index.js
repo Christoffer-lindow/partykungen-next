@@ -14,6 +14,7 @@ const History = ({ boxSizes }) => {
     articlesInfo,
     boxSizes
   );
+  console.log(validBoxFittingInfo);
 
   const filteredSizes = boxSizes.map((box) =>
     validBoxFittingInfo.filter((boxInfo) => box.box === boxInfo.box)
