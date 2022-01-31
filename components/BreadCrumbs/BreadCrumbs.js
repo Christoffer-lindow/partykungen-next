@@ -14,7 +14,7 @@ const BreadCrumbs = ({ paths }) => {
   return (
     <div className="w-full mb-4 ml-1 flex flex-row items-center">
       <Link href="/">
-        <div className="mr-2">
+        <div className="mr-2 hover:cursor-pointer">
           <Image src="/images/castle-2.svg" width={24} height={24} />
         </div>
       </Link>
