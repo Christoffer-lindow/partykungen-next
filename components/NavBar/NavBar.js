@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { useEffect } from "react";
+import { useArticle } from "../../hooks/articles";
 import NavLink from "./NavLink";
 
 const rightLinks = [

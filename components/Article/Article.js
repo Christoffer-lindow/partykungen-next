@@ -14,17 +14,13 @@ const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
   } = article;
   const price = value / 100 + suffix;
   const getImageUrl = (imageName) => `${articleImageBaseUrl}/${imageName}.jpg`;
-  const { addFavourite, favourites } = useFavourites();
+  const { addFavourite, favourites, favouritesCount } = useFavourites();
   const [isDisabled, setIsDisabled] = useState(false);
-
-  const handleAddFavourite = (article) => {
-    addFavourite(article);
-    setIsDisabled(true);
-  };
+  const handleAddFavourite = (article) => addFavourite(article);
 
   useEffect(() => {
     setIsDisabled(favourites.find((f) => f === article) !== undefined);
-  }, [article, favourites]);
+  }, [article, favouritesCount]);
 
   return (
     <>
