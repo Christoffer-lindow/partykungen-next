@@ -4,6 +4,7 @@ import ArticlePictures from "./ArticlePictures";
 import ArticleSizing from "./ArticleSizing";
 import BottomMargin from "../layouts/BottomMargin";
 import { useFavourites } from "../../hooks/favourites";
+import { useEffect, useState } from "react";
 const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
   const {
     name,
@@ -13,8 +14,17 @@ const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
   } = article;
   const price = value / 100 + suffix;
   const getImageUrl = (imageName) => `${articleImageBaseUrl}/${imageName}.jpg`;
+  const { addFavourite, favourites } = useFavourites();
+  const [isDisabled, setIsDisabled] = useState(false);
 
-  const { addFavourite } = useFavourites();
+  const handleAddFavourite = (article) => {
+    addFavourite(article);
+    setIsDisabled(true);
+  };
+
+  useEffect(() => {
+    setIsDisabled(favourites.find((f) => f === article) !== undefined);
+  }, [article]);
 
   return (
     <>
@@ -35,7 +45,10 @@ const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
         </div>
       </div>
       <BottomMargin />
-      <FavouriteButton onClick={() => addFavourite(article)} />
+      <FavouriteButton
+        onClick={() => handleAddFavourite(article)}
+        disabled={isDisabled}
+      />
       <BottomMargin />
 
       <ArticleSizing
