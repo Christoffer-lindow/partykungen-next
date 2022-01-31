@@ -43,7 +43,7 @@ const NavBar = () => {
             </div>
           </Link>
         </div>
-        <div className="flex w-1/4 justify-between">
+        <div className="flex w-2/6 justify-between">
           <RenderLinks links={rightLinks} />
         </div>
       </div>
