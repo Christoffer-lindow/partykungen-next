@@ -1,4 +1,4 @@
-import FavouriteButton from "../buttons/FavouriteButton/FavouriteButton";
+import WatchListButton from "../buttons//WatchListButton";
 import ProductHeader from "../typography/ProductHeader";
 import ArticlePictures from "./ArticlePictures";
 import ArticleSizing from "./ArticleSizing";
@@ -41,7 +41,7 @@ const Article = ({ article, articleImageBaseUrl, boxSizes, requestError }) => {
         <BottomMargin />
       </div>
       <BottomMargin />
-      <FavouriteButton
+      <WatchListButton
         onClick={() => addFavourite(article)}
         disabled={isDisabled}
       />

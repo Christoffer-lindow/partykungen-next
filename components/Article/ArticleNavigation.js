@@ -4,7 +4,6 @@ import { useArticle } from "../../hooks/articles";
 
 const Arrow = ({ isPrevious, onClick, disabled }) => {
   const handleOnClick = () => !disabled && onClick();
-
   return (
     <div
       onClick={handleOnClick}

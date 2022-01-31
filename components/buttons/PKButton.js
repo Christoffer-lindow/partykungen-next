@@ -1,4 +1,4 @@
-const CtaButton = ({ children, ...rest }) => {
+const PKButton = ({ children, ...rest }) => {
   return (
     <button
       {...rest}
@@ -9,4 +9,4 @@ const CtaButton = ({ children, ...rest }) => {
   );
 };
 
-export default CtaButton;
+export default PKButton;

@@ -1,4 +1,4 @@
-const FavouriteButton = ({ disabled, ...rest }) => {
+const WatchListButton = ({ disabled, ...rest }) => {
   return (
     <button
       disabled={disabled}
@@ -16,4 +16,4 @@ const FavouriteButton = ({ disabled, ...rest }) => {
   );
 };
 
-export default FavouriteButton;
+export default WatchListButton;

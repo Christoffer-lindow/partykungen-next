@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { formValidations } from "../../../utils/validation";
-import CtaButton from "../../buttons/CtaButton/CtaButton";
+import PKButton from "../../buttons/PKButton";
 import ArticleInput from "../../inputs/ArticleInput/ArticleInput";
 
 const FetchArticleForm = ({ onSubmit, currentArticle, requestError }) => {
@@ -67,12 +67,12 @@ const FetchArticleForm = ({ onSubmit, currentArticle, requestError }) => {
           />
         </div>
         <div className="w-5/12">
-          <CtaButton
+          <PKButton
             onClick={() => handleFetchArticle()}
             disabled={loading || formError}
           >
             {loading ? "Loading" : "Fetch article"}
-          </CtaButton>
+          </PKButton>
         </div>
       </div>
     </form>

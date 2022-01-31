@@ -1,5 +1,5 @@
 import HeadSection from "../components/layouts/HeadSection";
-import CtaButton from "../components/buttons/CtaButton/CtaButton";
+import PKButton from "../components/buttons/PKButton";
 import Layout from "../components/layouts/Layout";
 import BottomMargin from "../components/layouts/BottomMargin";
 import { useRouter } from "next/router";
@@ -10,13 +10,13 @@ const Home = () => {
     <Layout hasTopHeader>
       <HeadSection title={"Party king - Fighting boredom"} />
       <BottomMargin>
-        <CtaButton onClick={() => push("/articles")} className="mb-4">
+        <PKButton onClick={() => push("/articles")} className="mb-4">
           Articles
-        </CtaButton>
+        </PKButton>
       </BottomMargin>
-      <CtaButton onClick={() => push("/history")} className="">
+      <PKButton onClick={() => push("/history")} className="">
         History
-      </CtaButton>
+      </PKButton>
     </Layout>
   );
 };
