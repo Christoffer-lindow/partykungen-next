@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 const Home = () => {
   const { push } = useRouter();
   return (
-    <Layout hasTopHeader>
+    <Layout hasHero>
       <HeadSection title={"Party king - Fighting boredom"} />
       <BottomMargin>
         <PKButton onClick={() => push("/articles")} className="mb-4">

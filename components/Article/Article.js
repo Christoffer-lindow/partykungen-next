@@ -1,4 +1,4 @@
-import WatchListButton from "../buttons//WatchListButton";
+import WatchListButton from "../buttons/WatchListButton";
 import ProductHeader from "../typography/ProductHeader";
 import ArticlePictures from "./ArticlePictures";
 import ArticleSizing from "./ArticleSizing";
