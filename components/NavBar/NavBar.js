@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useArticle } from "../../hooks/articles";
@@ -33,10 +34,14 @@ const NavBar = () => {
       <div className="flex justify-between mx-7 items-center h-full">
         <div className="left w-6/8 flex">
           <Link href="/">
-            <img
-              src="/images/Partykungen_logo_RGB.svg"
-              className="h-20 w-20 cursor-pointer"
-            />
+            <div>
+              <Image
+                src="/images/Partykungen_logo_RGB.svg"
+                width={55}
+                height={55}
+                className="cursor-pointer"
+              />
+            </div>
           </Link>
         </div>
         <div className="flex w-1/4 justify-between">

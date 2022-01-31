@@ -1,10 +1,13 @@
+import Image from "next/image";
+
 const ArticlePictures = ({ productPictures, getImageUrl }) => {
   return (
     <div className="w-full flex justify-center mb-6">
       {productPictures.map((product) => (
-        <img
+        <Image
           src={getImageUrl(product.image_name)}
-          className="object-cover h-20"
+          height={80}
+          width={80}
           key={product.image_name}
         />
       ))}

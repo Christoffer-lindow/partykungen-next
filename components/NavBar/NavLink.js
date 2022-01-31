@@ -1,8 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const NavLink = ({ imageUrl, linkTo, ...rest }) => (
   <Link href={linkTo} {...rest}>
-    <img src={imageUrl} className="w-7 h-7 cursor-pointer" />
+    <div>
+      <Image width={22} height={22} src={imageUrl} className="cursor-pointer" />
+    </div>
   </Link>
 );
 export default NavLink;

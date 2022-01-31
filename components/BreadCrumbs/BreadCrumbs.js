@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const BreadCrumbs = ({ paths }) => {
@@ -13,7 +14,9 @@ const BreadCrumbs = ({ paths }) => {
   return (
     <div className="w-full mb-4 ml-1 flex flex-row items-center">
       <Link href="/">
-        <img src="./images/castle-2.svg" className="h-6 mr-2 cursor-pointer" />
+        <div className="mr-2">
+          <Image src="/images/castle-2.svg" width={24} height={24} />
+        </div>
       </Link>
       {renderPaths()}
     </div>

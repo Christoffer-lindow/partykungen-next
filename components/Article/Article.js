@@ -5,6 +5,7 @@ import ArticleSizing from "./ArticleSizing";
 import BottomMargin from "../layouts/BottomMargin";
 import { useFavourites } from "../../hooks/favourites";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 const Article = ({ article, articleImageBaseUrl, boxSizes, requestError }) => {
   const {
     name,
@@ -18,16 +19,14 @@ const Article = ({ article, articleImageBaseUrl, boxSizes, requestError }) => {
   const [isDisabled, setIsDisabled] = useState(false);
   const handleAddFavourite = (article) => addFavourite(article);
 
-  console.log(requestError);
-
   useEffect(() => {
     setIsDisabled(favourites.find((f) => f === article) !== undefined);
   }, [article, favouritesCount]);
 
   return (
     <>
-      <div className="w-full flex justify-center mb-6">
-        <img src={getImageUrl(image_name)} className="object-cover h-60" />
+      <div className="flex justify-center">
+        <Image height={180} width={180} src={getImageUrl(image_name)} />
       </div>
       <ArticlePictures
         productPictures={article.product_pictures}
