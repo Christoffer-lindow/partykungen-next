@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { formValidations } from "../../../utils/validation";
 import CtaButton from "../../buttons/CtaButton/CtaButton";
 import ArticleInput from "../../inputs/ArticleInput/ArticleInput";
 
-const FetchArticleForm = ({ onSubmit, currentArticle }) => {
+const FetchArticleForm = ({ onSubmit, currentArticle, requestError }) => {
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [packageOpen, setPackageOpen] = useState(false);
@@ -49,6 +49,10 @@ const FetchArticleForm = ({ onSubmit, currentArticle }) => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (requestError) setError(requestError);
+  }, [requestError]);
   return (
     <form>
       <div className="mb-4 flex">

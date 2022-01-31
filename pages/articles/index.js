@@ -12,10 +12,14 @@ const Articles = ({ articleImageBaseUrl, boxSizes }) => {
   const { fetchArticle, updateCurrentArticle, getCurrentArticle } =
     useArticle();
   const [article, setArticle] = useState(getCurrentArticle()?.article || null);
+  const [requestError, setRequestError] = useState(null);
   const handleSubmit = async (value) => {
     await fetchArticle(value)
-      .then((response) => setArticle(response))
-      .catch((error) => console.log(error));
+      .then((response) => {
+        setArticle(response);
+        setRequestError(null);
+      })
+      .catch((error) => setRequestError(error.message));
   };
 
   const handleUpdateArticle = (article) => {
@@ -32,6 +36,7 @@ const Articles = ({ articleImageBaseUrl, boxSizes }) => {
         loading
         onSubmit={(value) => handleSubmit(value)}
         currentArticle={article}
+        requestError={requestError}
       />
       <ArticleNavigation
         updateArticle={(article) => handleUpdateArticle(article)}

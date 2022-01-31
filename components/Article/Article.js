@@ -5,7 +5,7 @@ import ArticleSizing from "./ArticleSizing";
 import BottomMargin from "../layouts/BottomMargin";
 import { useFavourites } from "../../hooks/favourites";
 import { useEffect, useState } from "react";
-const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
+const Article = ({ article, articleImageBaseUrl, boxSizes, requestError }) => {
   const {
     name,
     product_box: { image_name },
@@ -17,6 +17,8 @@ const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
   const { addFavourite, favourites, favouritesCount } = useFavourites();
   const [isDisabled, setIsDisabled] = useState(false);
   const handleAddFavourite = (article) => addFavourite(article);
+
+  console.log(requestError);
 
   useEffect(() => {
     setIsDisabled(favourites.find((f) => f === article) !== undefined);
