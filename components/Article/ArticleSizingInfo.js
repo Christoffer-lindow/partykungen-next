@@ -1,6 +1,6 @@
 const InfoRow = ({ name, prop, dividend, unit }) => {
   const { valid, difference } = prop;
-  const prefix = valid ? "+" : "-";
+  const sufix = valid ? "+" : "-";
   return (
     <div className="w-full flex justify-between">
       <div className="">
@@ -10,7 +10,7 @@ const InfoRow = ({ name, prop, dividend, unit }) => {
       </div>
       <div>
         <div>
-          {prefix} {Math.abs(difference / dividend)} {unit}
+          {Math.abs(difference / dividend)} {unit} {sufix}
         </div>
       </div>
     </div>
