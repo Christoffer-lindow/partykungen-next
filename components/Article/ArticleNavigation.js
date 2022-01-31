@@ -3,9 +3,8 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useArticle } from "../../hooks/articles";
 
 const Arrow = ({ isPrevious, onClick, disabled }) => {
-  const handleOnClick = () => {
-    if (!disabled) onClick();
-  };
+  const handleOnClick = () => !disabled && onClick();
+
   return (
     <div
       onClick={handleOnClick}
