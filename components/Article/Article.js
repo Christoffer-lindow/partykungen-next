@@ -26,7 +26,7 @@ const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
   return (
     <>
       <div className="flex justify-center">
-        <Image height={180} width={180} src={imageUrl} />
+        <Image height={180} width={180} src={imageUrl} alt={name} />
       </div>
       <BottomMargin />
 

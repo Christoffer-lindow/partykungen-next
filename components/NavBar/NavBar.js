@@ -38,6 +38,7 @@ const NavBar = () => {
                 width={55}
                 height={55}
                 className="cursor-pointer"
+                alt={"Partyking logo"}
               />
             </div>
           </Link>

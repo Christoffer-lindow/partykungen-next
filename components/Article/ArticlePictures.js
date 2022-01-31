@@ -10,6 +10,7 @@ const ArticlePictures = ({ productPictures, articleImageBaseUrl }) => {
           height={80}
           width={80}
           key={product.image_name}
+          alt={product.image_name}
         />
       ))}
     </div>
