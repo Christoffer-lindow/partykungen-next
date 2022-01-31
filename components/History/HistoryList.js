@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useArticle } from "../../hooks/articles";
 import ProductHeader from "../typography/ProductHeader";
@@ -5,11 +6,8 @@ import HistoryItem from "./HistoryItem";
 
 const HistoryList = ({ filteredArticles }) => {
   const { getArticleByName, updateCurrentArticle } = useArticle();
-  const { push } = useRouter();
-
   const handleArticleClicked = (article) => {
     updateCurrentArticle(getArticleByName(article.productName));
-    push("/articles");
   };
   return (
     <>
@@ -19,11 +17,11 @@ const HistoryList = ({ filteredArticles }) => {
             <ProductHeader>Box {filteredArticles[i][0].box}</ProductHeader>
           </div>
           {size.map((s, i) => (
-            <HistoryItem
-              key={`${s}-${i}`}
-              item={s}
-              onClick={() => handleArticleClicked(s)}
-            />
+            <Link href="/articles" key={`${s}-${i}`}>
+              <div>
+                <HistoryItem item={s} onClick={() => handleArticleClicked(s)} />
+              </div>
+            </Link>
           ))}
         </div>
       ))}
