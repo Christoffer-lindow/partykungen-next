@@ -29,7 +29,7 @@ const History = ({ boxSizes }) => {
           <span>
             There are currently no items in the history. Browse our articles on{" "}
           </span>
-          <Link href="/articles">
+          <Link href="/articles" passHref>
             <span className="underline text-pk-blue font-bold">This page</span>
           </Link>
         </div>

@@ -4,7 +4,7 @@ import Link from "next/link";
 const BreadCrumbs = ({ paths }) => {
   const renderPaths = () =>
     paths.map((path) => (
-      <Link href={path.href} key={path}>
+      <Link href={path.href} key={path} passHref>
         <div className="hover:cursor-pointer">
           {">"} {path.name}
         </div>

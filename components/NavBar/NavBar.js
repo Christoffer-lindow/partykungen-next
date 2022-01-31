@@ -31,7 +31,7 @@ const NavBar = () => {
     <div className="lg:h-16 h-22 font-semibold bg-pk-yellow">
       <div className="flex justify-between mx-7 items-center h-full">
         <div className="left w-6/8 flex">
-          <Link href="/">
+          <Link href="/" passHref>
             <div>
               <Image
                 src="/images/Partykungen_logo_RGB.svg"

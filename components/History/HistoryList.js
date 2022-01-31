@@ -17,7 +17,7 @@ const HistoryList = ({ filteredArticles }) => {
             <ProductHeader>Box {filteredArticles[i][0].box}</ProductHeader>
           </div>
           {size.map((s, i) => (
-            <Link href="/articles" key={`${s}-${i}`}>
+            <Link href="/articles" key={`${s}-${i}`} passHref>
               <div>
                 <HistoryItem item={s} onClick={() => handleArticleClicked(s)} />
               </div>
