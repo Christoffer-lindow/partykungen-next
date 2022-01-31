@@ -1,5 +1,5 @@
 import { useArticle } from "../../hooks/articles";
-import FetchArticleForm from "../../components/forms/FetchArticleForm/FetchArticleForm";
+import FetchArticleForm from "../../components/forms/FetchArticleForm";
 import { useState } from "react";
 import { getBoxSizes } from "../api/boxes/sizes";
 import Layout from "../../components/layouts/Layout";

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { formValidations } from "../../../utils/validation";
-import PKButton from "../../buttons/PKButton";
-import ArticleInput from "../../inputs/ArticleInput/ArticleInput";
+import { formValidations } from "../../utils/validation";
+import PKButton from "../buttons/PKButton";
+import ArticleInput from "../inputs/ArticleInput/ArticleInput";
 
 const FetchArticleForm = ({ onSubmit, currentArticle, requestError }) => {
   const [value, setValue] = useState("");
