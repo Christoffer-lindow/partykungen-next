@@ -1,8 +1,9 @@
 import Image from "next/image";
 
-const ArticlePictures = ({ productPictures, getImageUrl }) => {
+const ArticlePictures = ({ productPictures, articleImageBaseUrl }) => {
+  const getImageUrl = (imageName) => `${articleImageBaseUrl}/${imageName}.jpg`;
   return (
-    <div className="w-full flex justify-center mb-6">
+    <div className="w-full flex justify-center">
       {productPictures.map((product) => (
         <Image
           src={getImageUrl(product.image_name)}

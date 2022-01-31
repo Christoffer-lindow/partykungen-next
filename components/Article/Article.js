@@ -14,10 +14,9 @@ const Article = ({ article, articleImageBaseUrl, boxSizes, requestError }) => {
     variant_first_buyable: variantFirstBuyable,
   } = article;
   const price = value / 100 + suffix;
-  const getImageUrl = (imageName) => `${articleImageBaseUrl}/${imageName}.jpg`;
+  const imageUrl = `${articleImageBaseUrl}/${image_name}.jpg`;
   const { addFavourite, favourites, favouritesCount } = useFavourites();
   const [isDisabled, setIsDisabled] = useState(false);
-  const handleAddFavourite = (article) => addFavourite(article);
 
   useEffect(() => {
     setIsDisabled(favourites.find((f) => f === article) !== undefined);
@@ -26,24 +25,24 @@ const Article = ({ article, articleImageBaseUrl, boxSizes, requestError }) => {
   return (
     <>
       <div className="flex justify-center">
-        <Image height={180} width={180} src={getImageUrl(image_name)} />
+        <Image height={180} width={180} src={imageUrl} />
       </div>
+      <BottomMargin />
+
       <ArticlePictures
         productPictures={article.product_pictures}
-        getImageUrl={getImageUrl}
+        articleImageBaseUrl={articleImageBaseUrl}
       />
-
-      <div className="flex justify-center mb-4">
-        <div className="text-center">
-          <div className="mb-4">
-            <ProductHeader>{name}</ProductHeader>
-          </div>
-          <ProductHeader isDanger>{price}</ProductHeader>
-        </div>
+      <div className="flex flex-col items-center">
+        <BottomMargin />
+        <ProductHeader>{name}</ProductHeader>
+        <BottomMargin />
+        <ProductHeader isDanger>{price}</ProductHeader>
+        <BottomMargin />
       </div>
       <BottomMargin />
       <FavouriteButton
-        onClick={() => handleAddFavourite(article)}
+        onClick={() => addFavourite(article)}
         disabled={isDisabled}
       />
       <BottomMargin />
