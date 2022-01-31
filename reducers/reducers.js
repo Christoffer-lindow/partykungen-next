@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import { articlesReducer } from "./articles";
-import { favouritesReducer } from "./favourites";
+import { watchlistItemsReducer } from "./watchlist";
 
 const rootReducer = combineReducers({
   articles: articlesReducer,
-  favourites: favouritesReducer,
+  watchlist: watchlistItemsReducer,
 });
 
 export default rootReducer;

@@ -1,17 +1,17 @@
 import Link from "next/link";
 import Layout from "../../components/layouts/Layout";
-import { useFavourites } from "../../hooks/favourites";
+import { useWatchlist } from "../../hooks/watchlist";
 
-const Favourites = () => {
+const WatchList = () => {
   const breadCrumbs = [{ href: "watchlist", name: "Watch list" }];
-  const { favourites } = useFavourites();
+  const { watchlist } = useWatchlist();
 
   return (
     <Layout breadCrumbs={breadCrumbs}>
       <div>
-        {favourites.length > 0 ? (
-          favourites.map((favourite, i) => (
-            <div key={`${favourite}-${i}`}>{favourite.name}</div>
+        {watchlist.length > 0 ? (
+          watchlist.map((article, i) => (
+            <div key={`${article}-${i}`}>{article.name}</div>
           ))
         ) : (
           <div>
@@ -31,4 +31,4 @@ const Favourites = () => {
   );
 };
 
-export default Favourites;
+export default WatchList;

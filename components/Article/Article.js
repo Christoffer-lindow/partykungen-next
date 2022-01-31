@@ -3,10 +3,10 @@ import ProductHeader from "../typography/ProductHeader";
 import ArticlePictures from "./ArticlePictures";
 import ArticleSizing from "./ArticleSizing";
 import BottomMargin from "../layouts/BottomMargin";
-import { useFavourites } from "../../hooks/favourites";
+import { useWatchlist } from "../../hooks/watchlist";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-const Article = ({ article, articleImageBaseUrl, boxSizes, requestError }) => {
+const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
   const {
     name,
     product_box: { image_name },
@@ -15,12 +15,13 @@ const Article = ({ article, articleImageBaseUrl, boxSizes, requestError }) => {
   } = article;
   const price = value / 100 + suffix;
   const imageUrl = `${articleImageBaseUrl}/${image_name}.jpg`;
-  const { addFavourite, favourites, favouritesCount } = useFavourites();
+  const { addArticleToWatchlist, watchlist, watchlistItemsCount } =
+    useWatchlist();
   const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
-    setIsDisabled(favourites.find((f) => f === article) !== undefined);
-  }, [article, favouritesCount]);
+    setIsDisabled(watchlist.find((f) => f === article) !== undefined);
+  }, [article, watchlistItemsCount]);
 
   return (
     <>
@@ -42,7 +43,7 @@ const Article = ({ article, articleImageBaseUrl, boxSizes, requestError }) => {
       </div>
       <BottomMargin />
       <WatchListButton
-        onClick={() => addFavourite(article)}
+        onClick={() => addArticleToWatchlist(article)}
         disabled={isDisabled}
       />
       <BottomMargin />
