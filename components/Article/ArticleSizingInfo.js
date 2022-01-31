@@ -8,7 +8,7 @@ const InfoRow = ({ name, prop, dividend, unit }) => {
           <p>{name}</p>
         </div>
       </div>
-      <div className="">
+      <div>
         <div>
           {prefix} {Math.abs(difference / dividend)} {unit}
         </div>
@@ -17,20 +17,45 @@ const InfoRow = ({ name, prop, dividend, unit }) => {
   );
 };
 
-export const ArticleSizingInfo = ({ propsInfo, fits }) => {
-  const width = propsInfo.get("width");
-  const height = propsInfo.get("height");
-  const depth = propsInfo.get("depth");
-  const weight = propsInfo.get("weight");
-  const box = propsInfo.get("box");
+export const ArticleSizingInfo = ({ sizingInfo, valid }) => {
+  const width = sizingInfo.get("width");
+  const height = sizingInfo.get("height");
+  const depth = sizingInfo.get("depth");
+  const weight = sizingInfo.get("weight");
+  const box = sizingInfo.get("box");
+
+  const lengthUnit = "cm";
+  const weightUnit = "g";
+  const lengthDividend = 10;
+  const weightDividend = 10;
 
   return (
-    <div className={`${fits ? "bg-green-400" : "bg-red-500"} p-6 h-48 w-100`}>
+    <div className={`${valid ? "bg-green-400" : "bg-red-500"} p-6 h-48 w-100`}>
       <h1 className="text-white text-2xl mb-2">Type: {box}</h1>
-      <InfoRow name="Width" prop={width} dividend={10} unit="cm" />
-      <InfoRow name="Height" prop={height} dividend={10} unit="cm" />
-      <InfoRow name="Depth" prop={depth} dividend={10} unit="cm" />
-      <InfoRow name="Weight" prop={weight} dividend={10} unit="gram" />
+      <InfoRow
+        name="Width"
+        prop={width}
+        dividend={lengthDividend}
+        unit={lengthUnit}
+      />
+      <InfoRow
+        name="Height"
+        prop={height}
+        dividend={lengthDividend}
+        unit={lengthUnit}
+      />
+      <InfoRow
+        name="Depth"
+        prop={depth}
+        dividend={lengthDividend}
+        unit={lengthUnit}
+      />
+      <InfoRow
+        name="Weight"
+        prop={weight}
+        dividend={weightDividend}
+        unit={weightUnit}
+      />
     </div>
   );
 };

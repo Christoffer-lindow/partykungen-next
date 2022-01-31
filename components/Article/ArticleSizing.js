@@ -1,15 +1,20 @@
-import { articleFitsInBox, getPropsInfo, props } from "../../utils/boxUtils";
+import { getBoxValidity, getBoxSizingInfo, props } from "../../utils/boxUtils";
 import { ArticleSizingInfo } from "./ArticleSizingInfo";
 
 const ArticleSizing = ({ variantFirstBuyable, boxSizes }) => {
-  const propsInfo = getPropsInfo(props, variantFirstBuyable, boxSizes);
-  const fittingBoxes = propsInfo.map((boxInfo) => articleFitsInBox(boxInfo));
+  const boxSizingInfo = getBoxSizingInfo(props, variantFirstBuyable, boxSizes);
+  const boxValidities = boxSizingInfo.map((sizingInfo) =>
+    getBoxValidity(sizingInfo)
+  );
   return (
     <div>
       <div className="flex w-100 justify-between">
-        {propsInfo.map((info, i) => (
+        {boxSizingInfo.map((sizingInfo, i) => (
           <div className="w-1/2" key={i}>
-            <ArticleSizingInfo propsInfo={info} fits={fittingBoxes[i].valid} />
+            <ArticleSizingInfo
+              sizingInfo={sizingInfo}
+              valid={boxValidities[i].valid}
+            />
           </div>
         ))}
       </div>
