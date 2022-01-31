@@ -2,6 +2,7 @@ import { FETCH_ARTICLE, UPDATE_ARTICLE } from "../constants/articles";
 
 const initialState = {
   articles: [],
+  currentArticle: null,
 };
 
 export const articlesReducer = (state = initialState, action) => {
