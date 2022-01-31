@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
-import { useArticle } from "../../hooks/articles";
 import NavLink from "./NavLink";
 
 const rightLinks = [
@@ -20,7 +18,7 @@ const rightLinks = [
 ];
 
 const RenderLinks = ({ links }) =>
-  links.map((link, i) => (
+  links.map((link) => (
     <NavLink
       imageUrl={link.imageUrl}
       linkTo={link.linkTo}
