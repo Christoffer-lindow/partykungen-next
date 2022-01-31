@@ -26,10 +26,10 @@ const History = ({ boxSizes }) => {
       ) : (
         <div>
           <span>
-            There are currently no items in the history. Browse our articles on
+            There are currently no items in the history. Browse our articles on{" "}
           </span>
           <Link href="/articles">
-            <span className="underline text-pk-blue font-bold"> This page</span>
+            <span className="underline text-pk-blue font-bold">This page</span>
           </Link>
         </div>
       )}
