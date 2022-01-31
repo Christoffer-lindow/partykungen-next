@@ -21,7 +21,7 @@ const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
 
   useEffect(() => {
     setIsDisabled(watchlist.find((f) => f === article) !== undefined);
-  }, [article, watchlistItemsCount]);
+  }, [article, watchlistItemsCount, watchlist]);
 
   return (
     <>
