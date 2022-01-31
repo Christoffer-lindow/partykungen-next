@@ -24,7 +24,7 @@ const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
 
   useEffect(() => {
     setIsDisabled(favourites.find((f) => f === article) !== undefined);
-  }, [article]);
+  }, [article, favourites]);
 
   return (
     <>

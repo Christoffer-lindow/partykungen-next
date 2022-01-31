@@ -17,8 +17,12 @@ const rightLinks = [
 ];
 
 const RenderLinks = ({ links }) =>
-  links.map((link) => (
-    <NavLink imageUrl={link.imageUrl} linkTo={link.linkTo} />
+  links.map((link, i) => (
+    <NavLink
+      imageUrl={link.imageUrl}
+      linkTo={link.linkTo}
+      key={`navlink-${link.imageUrl}`}
+    />
   ));
 
 const NavBar = () => {
