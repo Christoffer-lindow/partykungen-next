@@ -44,8 +44,8 @@ const FetchArticleForm = ({ onSubmit, currentArticle, requestError }) => {
   const handleFetchArticle = async () => {
     if (validateForm()) {
       setLoading(true);
-      setPackageOpen(true);
       await onSubmit(value);
+      setPackageOpen(true);
       setLoading(false);
     }
   };
