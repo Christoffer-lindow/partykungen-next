@@ -22,7 +22,7 @@ const WatchList = () => {
               on{" "}
             </span>
             <Link href="/articles" passHref>
-              <span className="underline text-pk-blue font-bold">
+              <span className="underline text-pk-blue font-bold hover:cursor-pointer">
                 This page
               </span>
             </Link>

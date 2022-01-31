@@ -34,12 +34,14 @@ const Article = ({ article, articleImageBaseUrl, boxSizes }) => {
         productPictures={article.product_pictures}
         articleImageBaseUrl={articleImageBaseUrl}
       />
-      <div className="flex flex-col items-center">
-        <BottomMargin />
-        <ProductHeader>{name}</ProductHeader>
-        <BottomMargin />
-        <ProductHeader isDanger>{price}</ProductHeader>
-        <BottomMargin />
+      <div className="flex text-center justify-center">
+        <div>
+          <BottomMargin />
+          <ProductHeader>{name}</ProductHeader>
+          <BottomMargin />
+          <ProductHeader isDanger>{price}</ProductHeader>
+          <BottomMargin />
+        </div>
       </div>
       <BottomMargin />
       <WatchListButton

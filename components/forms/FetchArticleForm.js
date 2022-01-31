@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { formValidations } from "../../utils/validation";
 import PKButton from "../buttons/PKButton";
 import ArticleInput from "../inputs/ArticleInput";
+import BottomMargin from "../layouts/BottomMargin";
 
 const FetchArticleForm = ({ onSubmit, currentArticle, requestError }) => {
   const [value, setValue] = useState("");
@@ -71,7 +72,7 @@ const FetchArticleForm = ({ onSubmit, currentArticle, requestError }) => {
             onClick={() => handleFetchArticle()}
             disabled={loading || formError}
           >
-            {loading ? "Loading" : "Fetch article"}
+            {loading ? "Loading" : "Fetch"}
           </PKButton>
         </div>
       </div>

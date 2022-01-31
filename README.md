@@ -11,4 +11,7 @@ yarn dev
 ```
 
 The app was designed with a mobile first approach.
+
 Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
+
+Or checkout the app at [https://partykungen-next.vercel.app/articles](https://partykungen-next.vercel.app/articles)

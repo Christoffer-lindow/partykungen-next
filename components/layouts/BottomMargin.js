@@ -1,5 +1,7 @@
-const BottomMargin = ({ margin = 4, children }) => (
-  <div className={`mb-${margin}`}>{children}</div>
+const BottomMargin = ({ margin = 4, children, ...rest }) => (
+  <div className={`mb-${margin}`} {...rest}>
+    {children}
+  </div>
 );
 
 export default BottomMargin;

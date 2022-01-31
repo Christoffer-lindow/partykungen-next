@@ -41,7 +41,7 @@ const ArticleInput = ({
         } focus:ring w-full pr-10`}
       />
       <RenderIcon isOpen={packageOpen} hasError={errorText.length > 0} />
-      <div className="text-red-500">{errorText}</div>
+      <div className="text-red-500 mt-2">{errorText}</div>
     </div>
   );
 };
