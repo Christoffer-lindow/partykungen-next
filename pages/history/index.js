@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HistoryList from "../../components/History/HistoryList";
+import HeadSection from "../../components/layouts/HeadSection";
 import Layout from "../../components/layouts/Layout";
 import { useArticle } from "../../hooks/articles";
 import { getArticlesThatFitInsideBoxes, props } from "../../utils/boxUtils";
@@ -22,6 +23,7 @@ const History = ({ boxSizes }) => {
 
   return (
     <Layout breadCrumbs={breadCrumbs}>
+      <HeadSection title={"Party king - History"} />
       {validBoxFittingInfo.length > 0 ? (
         <HistoryList filteredArticles={filteredSizes} />
       ) : (

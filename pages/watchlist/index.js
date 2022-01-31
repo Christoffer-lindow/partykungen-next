@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HeadSection from "../../components/layouts/HeadSection";
 import Layout from "../../components/layouts/Layout";
 import { useWatchlist } from "../../hooks/watchlist";
 
@@ -8,6 +9,7 @@ const WatchList = () => {
 
   return (
     <Layout breadCrumbs={breadCrumbs}>
+      <HeadSection title={"Party king - Watchlist"} />
       <div>
         {watchlist.length > 0 ? (
           watchlist.map((article, i) => (
