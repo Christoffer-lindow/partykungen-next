@@ -5,7 +5,6 @@ const HeadSection = ({ title = "Partyking", children }) => {
     <Head>
       <title>{title}</title>
       <meta name="description" content="Partyking box sizing" />
-      <link rel="icon" href="/images/favicon.ico" />
       {children}
     </Head>
   );
