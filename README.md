@@ -14,4 +14,4 @@ The app was designed with a mobile first approach.
 
 Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
 
-Or checkout the app at [https://partykungen-next.vercel.app](https://partykungen-next.vercel.app)
+Or checkout the app at [https://partykungen-next-christoffer-lindow.vercel.app/](https://partykungen-next-christoffer-lindow.vercel.app/)
